@@ -16,6 +16,7 @@ spec = importlib.util.spec_from_file_location("binary_tree_level_order_traversal
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 Solution = module.Solution
+TreeNode = module.TreeNode
 
 
 class TestBinaryTreeLevelOrderTraversal:

@@ -16,6 +16,7 @@ spec = importlib.util.spec_from_file_location("kth_smallest_element_in_a_bst", s
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 Solution = module.Solution
+TreeNode = module.TreeNode
 
 
 class TestKthSmallestElementInBST:

@@ -16,6 +16,7 @@ spec = importlib.util.spec_from_file_location("reverse_linked_list", src_path / 
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 Solution = module.Solution
+ListNode = module.ListNode
 
 
 class TestReverseLinkedList:

@@ -16,6 +16,7 @@ spec = importlib.util.spec_from_file_location("merge_k_sorted_lists", src_path /
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 Solution = module.Solution
+ListNode = module.ListNode
 
 
 class TestMergeKSortedLists:

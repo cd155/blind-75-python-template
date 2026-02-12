@@ -16,6 +16,7 @@ spec = importlib.util.spec_from_file_location("binary_tree_maximum_path_sum", sr
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 Solution = module.Solution
+TreeNode = module.TreeNode
 
 
 class TestBinaryTreeMaximumPathSum:

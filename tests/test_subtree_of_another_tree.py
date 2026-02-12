@@ -16,6 +16,7 @@ spec = importlib.util.spec_from_file_location("subtree_of_another_tree", src_pat
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 Solution = module.Solution
+TreeNode = module.TreeNode
 
 
 class TestSubtreeOfAnotherTree:

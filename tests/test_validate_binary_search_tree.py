@@ -16,6 +16,7 @@ spec = importlib.util.spec_from_file_location("validate_binary_search_tree", src
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 Solution = module.Solution
+TreeNode = module.TreeNode
 
 
 class TestValidateBinarySearchTree:

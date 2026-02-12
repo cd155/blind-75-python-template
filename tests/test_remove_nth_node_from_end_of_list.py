@@ -16,6 +16,7 @@ spec = importlib.util.spec_from_file_location("remove_nth_node_from_end_of_list"
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 Solution = module.Solution
+ListNode = module.ListNode
 
 
 class TestRemoveNthNodeFromEnd:
