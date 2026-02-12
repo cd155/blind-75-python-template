@@ -10,7 +10,12 @@ from pathlib import Path
 src_path = Path(__file__).parent.parent / "src"
 sys.path.insert(0, str(src_path))
 
-from tree.add_and_search_word import WordDictionary
+# Import using importlib to avoid conflicts with built-in modules
+import importlib.util
+spec = importlib.util.spec_from_file_location("add_and_search_word", src_path / "tree" / "add_and_search_word.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+WordDictionary = module.WordDictionary
 
 
 class TestAddAndSearchWord:

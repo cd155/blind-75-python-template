@@ -10,7 +10,12 @@ from pathlib import Path
 src_path = Path(__file__).parent.parent / "src"
 sys.path.insert(0, str(src_path))
 
-from tree.binary_tree_maximum_path_sum import Solution, TreeNode
+# Import using importlib to avoid conflicts with built-in modules
+import importlib.util
+spec = importlib.util.spec_from_file_location("binary_tree_maximum_path_sum", src_path / "tree" / "binary_tree_maximum_path_sum.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+Solution = module.Solution
 
 
 class TestBinaryTreeMaximumPathSum:

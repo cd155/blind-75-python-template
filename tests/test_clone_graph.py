@@ -10,7 +10,13 @@ from pathlib import Path
 src_path = Path(__file__).parent.parent / "src"
 sys.path.insert(0, str(src_path))
 
-from graph.clone_graph import Solution, Node
+# Import using importlib to avoid conflicts with built-in modules
+import importlib.util
+spec = importlib.util.spec_from_file_location("clone_graph", src_path / "graph" / "clone_graph.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+Solution = module.Solution
+Node = module.Node
 
 
 class TestCloneGraph:

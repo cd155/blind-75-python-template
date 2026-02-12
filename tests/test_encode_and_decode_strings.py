@@ -10,7 +10,12 @@ from pathlib import Path
 src_path = Path(__file__).parent.parent / "src"
 sys.path.insert(0, str(src_path))
 
-from string.encode_and_decode_strings import Codec
+# Import using importlib to avoid conflicts with built-in modules
+import importlib.util
+spec = importlib.util.spec_from_file_location("encode_and_decode_strings", src_path / "string" / "encode_and_decode_strings.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+Codec = module.Codec
 
 
 class TestEncodeAndDecodeStrings:

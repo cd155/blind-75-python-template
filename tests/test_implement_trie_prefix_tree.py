@@ -10,7 +10,12 @@ from pathlib import Path
 src_path = Path(__file__).parent.parent / "src"
 sys.path.insert(0, str(src_path))
 
-from tree.implement_trie_prefix_tree import Trie
+# Import using importlib to avoid conflicts with built-in modules
+import importlib.util
+spec = importlib.util.spec_from_file_location("implement_trie_prefix_tree", src_path / "tree" / "implement_trie_prefix_tree.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+Trie = module.Trie
 
 
 class TestImplementTrie:

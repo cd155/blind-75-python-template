@@ -10,7 +10,12 @@ from pathlib import Path
 src_path = Path(__file__).parent.parent / "src"
 sys.path.insert(0, str(src_path))
 
-from tree.binary_tree_level_order_traversal import Solution, TreeNode
+# Import using importlib to avoid conflicts with built-in modules
+import importlib.util
+spec = importlib.util.spec_from_file_location("binary_tree_level_order_traversal", src_path / "tree" / "binary_tree_level_order_traversal.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+Solution = module.Solution
 
 
 class TestBinaryTreeLevelOrderTraversal:
