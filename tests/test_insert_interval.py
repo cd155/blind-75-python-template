@@ -1,0 +1,29 @@
+"""
+Tests for LeetCode 57: Insert Interval
+"""
+
+import pytest
+import sys
+from pathlib import Path
+
+# Add src directory to path
+src_path = Path(__file__).parent.parent / "src"
+sys.path.insert(0, str(src_path))
+
+from interval.insert_interval import Solution
+
+
+class TestInsertInterval:
+    """Test cases for Insert Interval problem"""
+
+    def setup_method(self):
+        """Setup test fixtures"""
+        self.solution = Solution()
+
+    def test_example_1(self):
+        """Test case from example 1"""
+        assert self.solution.insert([[1, 3], [6, 9]], [2, 5]) == [[1, 5], [6, 9]]
+
+    def test_example_2(self):
+        """Test case from example 2"""
+        assert self.solution.insert([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8]) == [[1, 2], [3, 10], [12, 16]]
