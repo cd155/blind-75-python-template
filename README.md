@@ -38,6 +38,10 @@ src/
 git clone https://github.com/cd155/blind-75-python.git
 cd blind-75-python
 
+# Create python virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
 # Install dependencies
 pip install -r requirements.txt
 ```
