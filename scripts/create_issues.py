@@ -61,6 +61,33 @@ def extract_problems(src_dir="src"):
     return problems
 
 
+CATEGORY_DISPLAY_NAMES = {
+    "arrays_and_hashing": "Arrays & Hashing",
+    "two_pointers": "Two Pointers",
+    "sliding_window": "Sliding Window",
+    "stack": "Stack",
+    "binary_search": "Binary Search",
+    "linked_list": "Linked List",
+    "trees": "Trees",
+    "heap_priority_queue": "Heap / Priority Queue",
+    "backtracking": "Backtracking",
+    "tries": "Tries",
+    "graphs": "Graphs",
+    "advanced_graphs": "Advanced Graphs",
+    "dp_1d": "1-D Dynamic Programming",
+    "dp_2d": "2-D Dynamic Programming",
+    "greedy": "Greedy",
+    "intervals": "Intervals",
+    "math_and_geometry": "Math & Geometry",
+    "bit_manipulation": "Bit Manipulation",
+}
+
+
+def get_category_display(category):
+    """Get the human-readable NeetCode category name for a src/ directory."""
+    return CATEGORY_DISPLAY_NAMES.get(category, category.replace("_", " ").title())
+
+
 LEETCODE_SLUG_OVERRIDES = {
     "three_sum.py": "3sum",
     "add_and_search_word.py": "design-add-and-search-words-data-structure",
@@ -80,7 +107,7 @@ def get_leetcode_slug(filename):
 
 def build_issue_body(problem):
     """Build the issue body markdown for a problem."""
-    category_display = problem["category"].replace("_", " ").title()
+    category_display = get_category_display(problem["category"])
     filepath = problem["filepath"]
     slug = get_leetcode_slug(problem["filename"])
 
@@ -160,7 +187,11 @@ def ensure_labels_exist(token, repo, labels):
             continue
         url = f"https://api.github.com/repos/{repo}/labels"
         data = json.dumps(
-            {"name": label, "color": color, "description": f"Blind 75 - {label.title()} problems"}
+            {
+                "name": label,
+                "color": color,
+                "description": f"Blind 75 - {get_category_display(label.replace(' ', '_'))} problems",
+            }
         ).encode("utf-8")
 
         req = urllib.request.Request(
