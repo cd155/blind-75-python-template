@@ -134,16 +134,24 @@ def create_github_issue(token, repo, title, body, labels):
 def ensure_labels_exist(token, repo, labels):
     """Ensure all required labels exist in the repository."""
     label_colors = {
-        "array": "7057ff",
-        "binary": "008672",
-        "dynamic programming": "d73a4a",
-        "graph": "0075ca",
-        "heap": "cfd3d7",
-        "interval": "a2eeef",
+        "arrays and hashing": "7057ff",
+        "two pointers": "008672",
+        "sliding window": "d73a4a",
+        "stack": "0075ca",
+        "binary search": "cfd3d7",
         "linked list": "e4e669",
-        "matrix": "d876e3",
-        "string": "f9d0c4",
-        "tree": "0e8a16",
+        "trees": "0e8a16",
+        "heap priority queue": "a2eeef",
+        "backtracking": "d876e3",
+        "tries": "f9d0c4",
+        "graphs": "1d76db",
+        "advanced graphs": "5319e7",
+        "dp 1d": "b60205",
+        "dp 2d": "e99695",
+        "greedy": "c2e0c6",
+        "intervals": "bfd4f2",
+        "math and geometry": "fef2c0",
+        "bit manipulation": "006b75",
         "blind-75": "fbca04",
     }
 
